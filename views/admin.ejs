@@ -1,0 +1,107 @@
+<%- include('admin/util/head.ejs') %>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <%- include('admin/util/side.ejs') %>
+    <div class="container">
+      <% if(p=="voir") { %>
+      <% if (produit.length > 0) { %>
+      <div class="container col-md-12">
+        <h1>Tous les Produits</h1>
+        <div class="row col-md-12">
+          <% for (let prod of produit) { %>
+          <div class="card col-md-4 mb-4" >
+            <img class="card-img-top mt-4" src="images/<%= prod.image %>" style="height: 150px;width: 100%;" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%= prod.nom %></h5>
+              <p class="card-text"><%= prod.prix %>$</p>
+              <form action="/deleteProduct" name="" method="POST" class="col-md-12" >
+                <input type="hidden" name="id" value="<%= prod._id %>">
+                <button type="submit" class="btn btn-danger col-md-12 mb-1">Supprimer</button>
+              </form>
+              <form action="/updateProduit" name="" method="POST"class="col-md-12" >
+                <input type="hidden" name="id" value="<%= prod._id %>">
+                <button type="submit" class="btn btn-primary col-md-12 mb-1">Modifier</button>
+              </form>
+            </div>
+          </div>
+          <% } %>
+          
+        </div>
+      </div>
+      <% } else { %>
+        <h1>No Products Found!</h1>
+        <% }} %>
+
+        <% if(p=="ajouter") { %>
+      <div class="container mt-4 col-md-12">
+        <form action="/adminAddProduit" name="" method="POST" enctype="multipart/form-data">
+          <div>
+            <h1>Ajouter un produit</h1>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Nom</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="nom" aria-describedby="emailHelp">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputPassword1">Prix</label>
+            <input type="text" class="form-control" name="prix" id="exampleInputPassword1">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Desciption</label>
+            <textarea name="descr" id="" cols="3" rows="2" class="col-md-12 form-control"></textarea>
+          </div>
+          <div class="custom-file mb-4">
+            <input type="file" class="custom-file-input" name="file" id="customFile">
+            <label class="custom-file-label" for="customFile">Image</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+      </div>
+      <% } %>
+
+      <% if(p=="modifier") { %>
+        <div class="container mt-4 col-md-12">
+          <form action="/adminUpdateProduit" name="" method="POST" enctype="multipart/form-data">
+            <div>
+              <h1>Modifier un produit</h1>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nom</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" name="nom" value="<%= produit.nom %>" aria-describedby="emailHelp">
+            </div>
+  
+            <div class="form-group">
+              <label for="exampleInputPassword1">Prix</label>
+              <input type="text" class="form-control" name="prix" id="exampleInputPassword1" value="<%= produit.prix %>">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Desciption</label>
+              <textarea name="descr" id="" cols="3" rows="2" class="col-md-12 form-control" value=""><%= produit.description %></textarea>
+            </div>
+            <div class="custom-file mb-4">
+              <input type="file" class="custom-file-input" name="file" value="<%= produit.image %>" id="customFile">
+              <label class="custom-file-label" for="customFile">Image</label>
+            </div>
+            <input type="hidden" name="id" value="<%= produit._id %>">
+            <button type="submit" class="btn btn-primary">Modifier</button>
+          </form>
+        </div>
+        <% } %>
+    </div>
+
+    <!--div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div-->
+
+    <%- include('admin/util/script.ejs') %>

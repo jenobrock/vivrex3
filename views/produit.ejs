@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+   <%- include('util/head.ejs') %>
+    
+  </head>
+
+  <body>
+   <%- include('util/header.ejs') %>
+<section class="products">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-10 col-md-5 col-lg-3 mx-auto my-3 px-5 text-capitalize">
+<div class="products-categories-title my-4">
+  <h6 class="text-uppercase">Par categorie</h6>
+  <div class="products-categories-underline"></div>
+</div>
+<a href="#" class="d-block products-categories-link">
+  <p class="mb-0">Possonnerie</p>
+</a>
+<a href="#" class="d-block products-categories-link">
+  <p class="mb-0">Epicerie</p>
+</a>
+<a href="#" class="d-block products-categories-link">
+  <p class="mb-0">Boucherie  </p>
+</a>
+<a href="#" class="d-block products-categories-link">
+  <p class="mb-0">Autre</p>
+</a>
+ 
+<div class="products-categories-title my-4">
+  <h6 class="text-uppercase">Par Prix</h6>
+  <div class="products-categories-underline"></div>
+</div>
+<form>
+  <div class="form-group">
+    <label for="price-range">range : 500Fc - 10000Fc</label>
+    <input type="range" name="price-range" class="form-control-range" id="price-range">
+  </div>
+   
+</form>
+      </div>
+
+      <div class="col-10 col-md-7 col-lg-9 mx-auto my-3 ">
+        <div class="row">
+          <% for (let prod of produit) { %>
+          <div class="mx-auto col-md-6 col-lg-4">
+            <div class="featured-container p-5">
+              <img src="<%=prod.image%>" class="img-fluid" alt="product" />
+              <span class="featured-search-icon" data-toggle="modal" data-target="#productModal">
+                <i class="fas fa-search"></i>
+              </span>
+              <a href="#" class="featured-store-link text-captilaze">Ajouter au panier</a>
+            </div>
+            <h6 class="text-capitalize text-center my-2"><%=prod.nom%></h6>
+            <h6 class="text-center">
+              <span class="text-muted old-price mx-2"><%=prod.oprix%></span>
+              <span><%=prod.nprix%></span>
+            </h6>
+          </div>
+          <%}%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+   
+    <%- include('util/footer.ejs') %>  
+    <%- include('util/script.ejs') %>
+ 
+   
+  </body>
+</html>

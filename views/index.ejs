@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+   <%- include('util/head.ejs') %>
+    
+  </head>
+
+  <body>
+  
+   <%- include('util/header.ejs') %>
+   <!-- <div class="banner d-flex align-items-center pl-3 pl-lg-5">
+    <div>
+      <h1 class="text-capitalize text-slanted mb-0">Vivrier Express</h1>
+      <h1 class="text-uppercas font-weight-bold">Votre Vivrier</h1>
+      <a href="products.html" class="btn btn-yellow">Nous contacter</a>
+    </div>
+  </div> -->
+    
+    <section class="services py-5 text-center">
+   <%- include('index/presentation1.ejs') %>
+    </section>
+
+
+    <section class="home-categories py-5">
+   <%- include('index/presentation2.ejs') %>
+     
+    </section>
+   
+    <section>
+   <%- include('index/presentation3.ejs') %>
+    
+    </section>
+    
+    <section class="featured py-5">
+   <%- include('index/presentation4.ejs') %>
+    
+    </section>
+    <section class="partners py-5">
+   <%- include('index/presentation5.ejs') %>
+     
+    </section> 
+   
+    <!--section class="newsletter py-5">
+   <%- include('index/presentation6.ejs') %>
+    
+    </section-->
+   
+    <section class="skills py-5">
+   <%- include('index/presentation7.ejs') %>
+     
+    </section>
+   <%- include('util/footer.ejs') %>
+    
+    
+    <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+    <%- include('util/modal.ejs') %>
+     
+    </div>
+    <%- include('util/script.ejs') %>
+ 
+   
+  </body>
+</html>

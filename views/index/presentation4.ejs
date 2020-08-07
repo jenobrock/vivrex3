@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row my-3">
+      <div class="col-10 mx-auto text-center">
+        <h1 class="text-uppercase">Tous les Produits</h1>
+        <p class="text-muted">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
+          recusandae.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+        <% for(let prod of produit){ %>
+  
+      <div class="col-lg-4 col-sm-6" style="margin-left: 0px;">
+        <div class="card-service text-center">
+          <div class="">
+            <img src="images/<%= prod.image %>" width="200px" height="160px" alt="">
+          </div>
+          <h3>SSD Cloud Hosting</h3>
+          <p>Man greater image shall land air winged replenish whose winged great fifth fruitful Set days sealand over great  </p>
+        </div>
+        <form action="/detail" name="" method="post"class="col-md-12" >
+          <input type="hidden" name="id" value="<%= prod._id %>">
+          <button type="submit" class="btn btn-primary col-md-12 mb-1">Ajouter Panier</button>
+        </form>
+
+      </div>
+    <% } %>
+    </div>
+  </div>

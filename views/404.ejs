@@ -1,0 +1,29 @@
+
+  <!DOCTYPE html>
+<html lang="fr">
+  <head>
+   <%- include('util/head.ejs') %>
+    
+  </head>
+
+  <body>
+    <%- include('util/header.ejs') %>
+
+    <div class="container-fluid">
+
+        <!-- 404 Error Text -->
+        <div class="text-center">
+          <div class="error mx-auto" data-text="404">404</div>
+          <p class="lead text-gray-800 mb-5">Page  Non Trouvée</p>
+          <p class="text-gray-500 mb-0">Verifier votre connexion internet ou actualiser la page</p>
+          <a href="/">&larr; Retour à l'acceuille</a>
+        </div>
+    
+      </div>
+
+    <%- include('util/footer.ejs') %>
+    <%- include('util/script.ejs') %>
+ 
+   
+  </body>
+</html>

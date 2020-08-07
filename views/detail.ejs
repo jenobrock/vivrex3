@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+   <%- include('util/head.ejs') %>
+    
+  </head>
+
+  <body>
+  
+   <%- include('util/header.ejs') %>
+   <section class="blog_area single-post-area section-margin">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 posts-list">
+                <div class="single-post">
+                        <div class="feature-img col-md-12 center-title">
+                            <img class="col-md-12" height="300px" src="images/<%= prod.image %>" alt="">
+                        </div>
+                    <div class="blog_details">
+                        <h2><%= prod.nom %></h2>
+                            
+                        <p class="excert">
+                          <%= prod.description %>
+                        </p>
+                       
+                    </div>
+                </div>
+                <form action="/addcart" name="" method="post"class="col-md-12" >
+                  <input type="text" class=" col-md-12 mb-1" name="quantite" id="q">
+                  <input type="hidden" name="id" value="<%= prod._id %>">
+                  <button type="submit" class="btn btn-primary col-md-12 mb-1">Ajouter Panier</button>
+                </form> 
+            </div>
+           
+        </div>
+    </div>
+</section>
+</section>
+<%- include('util/footer.ejs') %>
+ 
+ 
+ <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+  
+ </div>
+ <%- include('util/script.ejs') %>
+
+
+</body>
+</html>
