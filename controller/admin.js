@@ -7,7 +7,8 @@ const getHome = (req, res) => {
     res.render("admin", {
       path: "/admin",
       produit:produit,
-      p:"voir"
+      p:"voir",
+      user:req.user
     });
   }).catch(err=>{
     console.log(err)
@@ -20,7 +21,8 @@ const getHomeAjouter = (req, res) => {
     res.render("admin", {
       path: "/admin",
       produit:produit,
-      p:"ajouter"
+      p:"ajouter",
+      user:req.user
     });
   }).catch(err=>{
     console.log(err)
@@ -35,7 +37,8 @@ console.log(id);
     res.render("admin", {
       path: "/admin",
       produit:produit,
-      p:"modifier"
+      p:"modifier",
+      user:req.user
     });
   }).catch(err=>{
     console.log(err)
@@ -46,6 +49,7 @@ console.log(id);
 const getAddProduct = (req, res) => {
   res.render("addProd", {
     path: "/adminAdd",
+    user:req.user
   });
 };
 

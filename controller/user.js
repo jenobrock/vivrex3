@@ -14,6 +14,7 @@ const preg=(req,res)=>{
     console.log('erreur password')
    return res.render("register", {
      path: "/user",
+     user:req.user
    });
   }
   User.findOne({phone:phone})
@@ -22,6 +23,7 @@ const preg=(req,res)=>{
       console.log("numero deja utilisé");
       return res.render("register", {
         path: "/user",
+        user:req.user
       });
     }
     return bcrypt
@@ -53,6 +55,7 @@ const preg=(req,res)=>{
 const getLogin = (req, res) => {
   res.render("login", {
     path: "/user",
+    user:req.user
   });
 };
 
@@ -61,6 +64,7 @@ const getRegister = (req, res) => {
   console.log(user);
   res.render("register", {
     path: "/user",
+    user:req.user
   });
 };
 const postLogin = (req, res) => {

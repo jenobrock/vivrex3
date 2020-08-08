@@ -7,29 +7,47 @@
 
   <body>
     <%- include('util/header.ejs') %>
-    <div class="row">
-      <% for(let prod of produit){ %>
-
-    <div class="col-lg-4 col-sm-6" style="margin-left: 0px;">
-      <div class="card-service text-center">
-        <div class="">
-          <img src="images/<%= prod.productId.image %>" width="200px" height="160px" alt="">
-        </div>
-        <h3>SSD Cloud Hosting</h3>
-        <p>Man greater image shall land air winged replenish whose winged great fifth fruitful Set days sealand over great  </p>
-      </div>
-      <form action="/detail" name="" method="post"class="col-md-12" >
-        <input type="hidden" name="id" value="<%= prod._id %>">
-        <button type="submit" class="btn btn-primary col-md-12 mb-1">Retirer Panier</button>
-      </form>
-
-    </div>
-  <% } %>
-  </div>
-  <form action="/commande" method="POST" class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-    <button type="submit" class="col-md-12 col-lg-12 col-sm-12 col-xs-12 btn1">Commander</button>
+    <div class="row text-center">
+      <p class="col-md-2">&nbsp;</p>
+       <table class="table col-md-8">
+      <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Prix</th>
+          <th scope="col">Quantité</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% var k =0;for(let prod of produit){ k=k+(prod.productId.prix*prod.quantity); %>
+        <tr>
+          <td><%= prod.productId.nom %></td>
+          <td><%= prod.productId.prix %></td>
+          <td><%= prod.quantity %></td>
+          <td><form action="/detail" name="" method="post"class="col-md-10" >
+            <input type="hidden" name="id" value="<%= prod._id %>">
+            <button type="submit" class="btn btn-primary col-md-12 mb-1">Retirer Panier</button>
+          </form></td>
+        </tr>
+        <% } %>
+         
+        <td colspan="1" ><p>Total : </p></td>
+        
+        <td class="table-active"><%= k %></td>
+        
+      </tr>
+      </tbody>
+    </table>
+    <p class="col-md-2">&nbsp;</p>
+    <p class="col-md-3">&nbsp;</p>
+    <form action="/commande" method="POST" class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
+    <button type="submit" class="col-md-12 btn btn-primary col-lg-12 col-sm-12 col-xs-12 btn1">Commander</button>
     <input type="hidden" name="proId" value="">
 </form>
+    </div>
+     
+    
+  
     <%- include('util/footer.ejs') %>
     <%- include('util/script.ejs') %>
  

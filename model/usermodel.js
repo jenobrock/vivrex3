@@ -19,10 +19,10 @@ const user = new schema({
       type: String,
       required: true,
     },
-    /*type: {
+    type: {
       type: String,
       default:"client"
-    },*/
+    },
     cart: {
       items: [
         {

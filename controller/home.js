@@ -9,7 +9,8 @@ const getHome=(req,res)=>{
     Product.find().then(produit=>{
       res.render("index",{
         produit:produit,
-        path:"/home"
+        path:"/home",
+        user:req.user
       })
     }).catch(err=>{
       console.log(err)
@@ -28,7 +29,8 @@ const getHome=(req,res)=>{
        // console.log(produit);
         res.render("detail",{
          prod:produit,
-          path:"/home"
+          path:"/home",
+          user:req.user
         })
      }).catch(err=>{
         console.log(err)
@@ -41,7 +43,15 @@ const getHome=(req,res)=>{
       console.log(req.body)
       Product.findById(req.body.id)
       .then(product => {
-        return req.user.addToCart(product,req.body.quantite);
+        req.user.addToCart(product,req.body.quantite)
+        Product.find().then(produit=>{
+          return res.render("index",{
+            produit:produit,
+            path:"/home",
+            user:req.user
+          })
+        })
+         
       }).then(product=>{
         console.log(product)
       }).catch(err=>{

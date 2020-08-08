@@ -6,7 +6,8 @@
 
 const getHome=(req,res)=>{
     res.render("reservation",{
-        path:"/reservation"
+        path:"/reservation",
+        user:req.user
     })
 }
 
