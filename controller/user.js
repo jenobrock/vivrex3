@@ -29,7 +29,7 @@ const preg=(req,res)=>{
     return bcrypt
     .hash(pass1, 12).then((hashed) => {
       const user = new User({
-        nom : nom,prenom:prenom,phone: phone,password:hashed , cart:{items:[]}
+        nom : nom,prenom:prenom,phone: phone,password:hashed , cart:{items:[],type:"client"}
       });
       user.save()
       .then((result) => {

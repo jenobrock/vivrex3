@@ -58,6 +58,7 @@ const AddProduct = (req, res, next) => {
   const image = req.file;
   const prix = req.body.prix;
   const description = req.body.descr;
+  const categorie = req.body.categorie;
   img = "";
   if (image) {
     img = image.filename;
@@ -68,6 +69,7 @@ const AddProduct = (req, res, next) => {
     prix: prix,
     image: img,
     description: description,
+    categorie:categorie
   });
   product
     .save()
@@ -86,6 +88,8 @@ const UpdateProduct = (req, res, next) => {
   const image = req.file;
   const prix = req.body.prix;
   const description = req.body.descr;
+    const categorie = req.body.categorie;
+
   img = "";
   if (image) {
     img = image.filename;
@@ -96,7 +100,8 @@ const UpdateProduct = (req, res, next) => {
   produitprix= prix
   produit.image= img,
   produit.description= description,
-  
+  produit.categorie =categorie
+
   produit
     .save()
     .then((result) => {

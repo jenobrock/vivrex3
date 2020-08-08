@@ -13,6 +13,10 @@ const SchemaProduit=new Schema({
     type:String,
     require:true
   },
+  categorie:{
+    type:String,
+    require:true
+  },
   description:{
     type:String,
     require:true
